@@ -111,8 +111,7 @@ def get_alltime_chasing_aggregate():
 		seasonYear = seasonURL.split(';id=')[1].split(';')[0]
 		if '/' in seasonYear:
 			seasonYear = seasonYear[:2] + seasonYear[5:]
-		# print "Processing Season: %s" % (seasonYear)
-
+		
 		# read data from cache, if available, else fetch data over network and cache
 		cachename = "data/results" + seasonYear + ".json" 
 		try:
@@ -214,7 +213,6 @@ def main():
 		datarow.append(team_total_losses)
 		datarow.append(team_total_chases)
 		datarow.append(winpercentage)
-		# summary[team] = str(team_total_wins) + " of " + str(team_total_chases) + " (" + "{:.1%}".format(winpercentage) + ")"
 		summary[team] = datarow
 
 	print "\nChasing record of IPL Teams: \n"
@@ -239,9 +237,7 @@ def main():
 	# total successful chases
 	chasePercentage = float(iplTotalSuccessfulChases)/float(ipl_total_chases)
 	formattedChasePercentage = "{:.1%}".format(chasePercentage)
-	print "\nTotal Successful Chases in IPL history: %s (out of %s total chases), a %s success rate option." % (iplTotalSuccessfulChases,ipl_total_chases,formattedChasePercentage)
-	print "\nNote: Supergiants of 2016 season were renamed as Supergiant (singular) in 2017 season."
-
+	print "\nTotal Successful Chases in IPL history: %s (out of %s total chases), a %s success rate option." % (iplTotalSuccessfulChases,ipl_total_chases,formattedChasePercentage)	
 
 if __name__ == "__main__":
 	main()
